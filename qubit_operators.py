@@ -29,9 +29,24 @@ def rotation_operator(r_vec, theta):
 
 	return ( math.cos(theta / 2.0) * i_gate - 1j * math.sin(theta/2) * 
 						(r_vec[0] * x_gate + r_vec[1] * y_gate + r_vec[2] * z_gate))
+##
+## Assuming that U is a unitary 2x2 matrix,
+## Then U can be decomposed as 
+## 
+## U = exp(i\varphi)AXBXC where ABC = I
+##
+
+def controlled_U(U_gate):
+	## figure out A,B,C
+	## Resulting circuit should be 
+	## Phase shift on 1st, C on 2nd, CNOT, B on 2nd, CNOT, C on 2nd 
+
+	## create program?
 
 
-## Write Function that returns CZ, has this been done by Rigetti???
+
+	## Returns 4x4 matrix that is the controlled U operation with the first qubit being the control
+	return
 
 if __name__ == "__main__":
 	print (rotation_operator([1,0,0],math.pi)==np.array([[0,-1j],[-1j,0]]))
