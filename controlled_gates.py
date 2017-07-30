@@ -29,7 +29,7 @@ if __name__ == "__main__":
 	wavf, _ =qvm.wavefunction(p)
 	print(wavf)	
 
-	p.inst(("CU",0,1))
+	p.inst(("CU",1,0))
 
 	wavf, _ =qvm.wavefunction(p)
 	print(wavf)
