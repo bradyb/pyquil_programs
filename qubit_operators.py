@@ -40,13 +40,19 @@ def controlled_U(U_gate):
 	## figure out A,B,C
 	## Resulting circuit should be 
 	## Phase shift on 1st, C on 2nd, CNOT, B on 2nd, CNOT, C on 2nd 
-
 	## create program?
 
+	##TODO: change this
+	theta = math.pi
+	phase_shift_gate = np.array([[1,0],
+								 [0,math.exp(1j * theta)]])
 
+
+	p = pq.Program()
+	p.inst()
 
 	## Returns 4x4 matrix that is the controlled U operation with the first qubit being the control
-	return
+	return p
 
 if __name__ == "__main__":
 	print (rotation_operator([1,0,0],math.pi)==np.array([[0,-1j],[-1j,0]]))
