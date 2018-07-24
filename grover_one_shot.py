@@ -20,9 +20,14 @@ def single_shot_grovers(data):
 	grover_op = 2 * (1./len(data)) * np.ones(tuple([len(data)] + [1])) * np.ones(len(data)) - np.identity(len(data))
 	p.defgate("grover_op", grover_op)
 	p.inst(tuple(["grover_op"] + [i for i in range(0,data_size)]))
+
+
+	for index in range(0,data_size):
+		p.measure(index, index)
+
 	print(p)
 	wavefunction = qvm.wavefunction(p)
 	print(qvm.wavefunction(p))
 
 single_shot_grovers([0,0,1,0])
-single_shot_grovers([1,0,0,0, 0, 1, 1, 0])
+single_shot_grovers([1,0,0,0, 0, 1, 0, 0])
